@@ -84,12 +84,12 @@ const char& Kmer::at(int index) const
     }   
 }
 
-char& Kmer::at(int index) const 
+char& Kmer::at(int index) 
 {
     
     if (index < 0 || index >= getK()){ // Precondition violation
         throw std::out_of_range(       // composed string
-            std::string("const char& Kmer::at(int index) const: ") +
+            std::string("char& Kmer::at(int index) const: ") +
                         "invalid position " + std::to_string(index));
     }
     else{
@@ -104,7 +104,7 @@ void Kmer::normalize(const std::string& validNucleotides)
     // the characters to uppercase then it replaces any invalid character.
     
     // 1. Converting:
-    
+    int size = _text.size();
     ToUpper(_text);
     
     // As a reference is used in the function's parameters, it will modify
@@ -113,21 +113,19 @@ void Kmer::normalize(const std::string& validNucleotides)
     // 2. Formatting:
     
     
-    for (int i = 0; i < _text.size(); i++){
+    for (int i = 0; i < size; i++){
         // First we run through the string
         
         
-        // Then we check if the character we're looking matches any of the 
-        // valid ones, if it doesn't we change it for our constant 
+        // Then we check if the character we're looking at matches any of the 
+        // valid ones, if it doesn't we switch it with our constant 
         // MISSING_NUCLEOTIDE character
-        if (_text.at(i) != validNucleotides.at(0) && 
-            _text.at(i) != validNucleotides.at(1) &&
-            _text.at(i) != validNucleotides.at(2) &&
-            _text.at(i) != validNucleotides.at(3) &&){
-            
+        // We can efficiently make use of our function.
+        
+        if (!IsValidNucleotide(_text.at(i),validNucleotides)){
             _text.at(i) = MISSING_NUCLEOTIDE;
         }
-        
+             
         // If it matches one of the valid ones we simply move on to study
         // the next character.
             
@@ -138,8 +136,17 @@ void Kmer::normalize(const std::string& validNucleotides)
 Kmer Kmer::complementary(const std::string& nucleotides, 
          const std::string& complementaryNucleotides) const
 {
+    if (nucleotides.size() != complementaryNucleotides.size()){ // Different sizes
+        throw std::invalid_argument( // composed string
+            std::string("Kmer Kmer::complementary(const std::string& nucleotides,") +
+                        "const std::string& complementaryNucleotides) const:" +
+                        " nucleotides and complementary nucleotides cannot be" +
+                        " differently sized");
+    }
     
+    // First we assign the variable nucleotides with the Kmer in our class.
     
+    nucleotides = _text;
     
 }
 
