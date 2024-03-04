@@ -1,0 +1,71 @@
+\begin{theindex}
+
+  \item {doOverlap}
+    \subitem {Rectangle}, \hyperpage{13}
+    \subitem {Rectangle.cpp}, \hyperpage{22}
+
+  \indexspace
+
+  \item {getBottomRight}
+    \subitem {Rectangle}, \hyperpage{11}
+  \item {getTopLeft}
+    \subitem {Rectangle}, \hyperpage{11}
+  \item {getX}
+    \subitem {Point2D}, \hyperpage{8}
+  \item {getY}
+    \subitem {Point2D}, \hyperpage{8}
+
+  \indexspace
+
+  \item {include/Point2D.h}, \hyperpage{15}
+  \item {include/Rectangle.h}, \hyperpage{16}
+  \item {isEmpty}
+    \subitem {Rectangle}, \hyperpage{11}
+  \item {isInside}
+    \subitem {Rectangle.cpp}, \hyperpage{22}
+    \subitem {Rectangle.h}, \hyperpage{17}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{18}
+  \item {main.cpp}
+    \subitem {main}, \hyperpage{18}
+
+  \indexspace
+
+  \item {Point2D}, \hyperpage{7}
+    \subitem {getX}, \hyperpage{8}
+    \subitem {getY}, \hyperpage{8}
+    \subitem {Point2D}, \hyperpage{8}
+    \subitem {setX}, \hyperpage{8}
+    \subitem {setY}, \hyperpage{9}
+
+  \indexspace
+
+  \item {Rectangle}, \hyperpage{9}
+    \subitem {doOverlap}, \hyperpage{13}
+    \subitem {getBottomRight}, \hyperpage{11}
+    \subitem {getTopLeft}, \hyperpage{11}
+    \subitem {isEmpty}, \hyperpage{11}
+    \subitem {Rectangle}, \hyperpage{10}
+    \subitem {setGeometry}, \hyperpage{12}
+  \item {Rectangle.cpp}
+    \subitem {doOverlap}, \hyperpage{22}
+    \subitem {isInside}, \hyperpage{22}
+  \item {Rectangle.h}
+    \subitem {isInside}, \hyperpage{17}
+
+  \indexspace
+
+  \item {setGeometry}
+    \subitem {Rectangle}, \hyperpage{12}
+  \item {setX}
+    \subitem {Point2D}, \hyperpage{8}
+  \item {setY}
+    \subitem {Point2D}, \hyperpage{9}
+  \item {src/main.cpp}, \hyperpage{18}
+  \item {src/Point2D.cpp}, \hyperpage{20}
+  \item {src/Rectangle.cpp}, \hyperpage{21}
+
+\end{theindex}
