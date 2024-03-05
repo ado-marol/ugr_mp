@@ -39,6 +39,7 @@ CCC_G<-->ggg_c
 CC_G_<-->gg_c_
 C_G_G<-->g_c_c
  */
+
 int main(int argc, char* argv[]) {
     
     int k; 
@@ -72,9 +73,16 @@ int main(int argc, char* argv[]) {
     int kmers_used = 0;
     int complementaries_used = 0;
     
+    // We make sure we won't accept a sequence longer than the dimension of our
+    // array.
+    
+    if (sequence_size > DIM_ARRAY_KMERS && k < sequence_size)
+        sequence_size = DIM_ARRAY_KMERS + k - 1;
+    
     // Obtain the kmers: find the kmers in the input string and put them in an array of Kmers
     
     // First we will run through the whole string.
+    
     
     for (int i = 0; i < (sequence_size - k + 1); i++) {
     
@@ -133,7 +141,7 @@ int main(int argc, char* argv[]) {
     
     // Show the list of kmers and complementary kmers as in the example
     
-    std::cout << k << std::endl;
+    std::cout << kmers_used << std::endl;
     
     for(int i = 0; i < kmers_used; i++) {
         std::string output;
