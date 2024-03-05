@@ -1,0 +1,34 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Class Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class List}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Kmer Class Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{6}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Constructor \& Destructor Documentation}{6}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}Kmer()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{6}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}Kmer()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{6}{subsubsection.3.1.2.2}%
+\contentsline {subsection}{\numberline {3.1.3}Member Function Documentation}{7}{subsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.3.1}at()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{7}{subsubsection.3.1.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.3.2}at()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{8}{subsubsection.3.1.3.2}%
+\contentsline {subsubsection}{\numberline {3.1.3.3}complementary()}{8}{subsubsection.3.1.3.3}%
+\contentsline {subsubsection}{\numberline {3.1.3.4}getK()}{9}{subsubsection.3.1.3.4}%
+\contentsline {subsubsection}{\numberline {3.1.3.5}normalize()}{10}{subsubsection.3.1.3.5}%
+\contentsline {subsubsection}{\numberline {3.1.3.6}size()}{10}{subsubsection.3.1.3.6}%
+\contentsline {subsubsection}{\numberline {3.1.3.7}toString()}{11}{subsubsection.3.1.3.7}%
+\contentsline {subsection}{\numberline {3.1.4}Member Data Documentation}{11}{subsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.4.1}MISSING\_NUCLEOTIDE}{11}{subsubsection.3.1.4.1}%
+\contentsline {chapter}{\numberline {4}File Documentation}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}/home/adolfo/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/ugr\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}mp/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Net\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beans\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Kmer0/include/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Kmer.h File Reference}{13}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{13}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Function Documentation}{14}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}IsValidNucleotide()}{14}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}ToLower()}{14}{subsubsection.4.1.2.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}ToUpper()}{15}{subsubsection.4.1.2.3}%
+\contentsline {section}{\numberline {4.2}/home/adolfo/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/ugr\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}mp/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Net\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Beans\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Kmer0/src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Kmer.cpp File Reference}{15}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{16}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Function Documentation}{16}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}IsValidNucleotide()}{16}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}ToLower()}{17}{subsubsection.4.2.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.3}ToUpper()}{18}{subsubsection.4.2.2.3}%

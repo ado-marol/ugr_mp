@@ -1,0 +1,145 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}Kmer.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Adolfo Martínez Olmedo Created on 05 March 2024, 15\+:00 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+This program first reads from the standard input an integer k (length of \mbox{\hyperlink{classKmer}{Kmer}}) and a string with a genetic sequence. Then, it obtains from the genetic sequence, the list of kmers (of length k) and saves them in the array kmers. Then, the kmers are normalized. After that, the complementary kmers, converted to lowercase, are saved in the array complementary\+Kmers. Finally the kmers in the arrays kmers and complementary\+Kmers are shown in the standard output. See the next example\+:
+
+Running example\+: \begin{quote}
+kmer0 $<$ data/easy\+DNA5\+\_\+missing.\+k0in \end{quote}
+6 GCGCC$<$-\/-\/$>$cgcgg CGCCC$<$-\/-\/$>$gcggg GCCC\+\_\+$<$-\/-\/$>$cggg\+\_\+ CCC\+\_\+G$<$-\/-\/$>$ggg\+\_\+c CC\+\_\+\+G\+\_\+$<$-\/-\/$>$gg\+\_\+c\+\_\+ C\+\_\+\+G\+\_\+G$<$-\/-\/$>$g\+\_\+c\+\_\+c \begin{DoxyReturn}{Returns}
+Always 0 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43                                  \{}
+\DoxyCodeLine{44     }
+\DoxyCodeLine{45     \textcolor{keywordtype}{int} k; }
+\DoxyCodeLine{46     std::string genetic\_sequence;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{// This string contains the list of nucleotides that are considered as}}
+\DoxyCodeLine{49     \textcolor{comment}{// valid within a genetic sequence. The rest of characters are considered as}}
+\DoxyCodeLine{50     \textcolor{comment}{// unknown nucleotides }}
+\DoxyCodeLine{51     \textcolor{keyword}{const} std::string VALID\_NUCLEOTIDES = \textcolor{stringliteral}{"{}ACGT"{}};}
+\DoxyCodeLine{52     }
+\DoxyCodeLine{53     \textcolor{comment}{// This string contains the list of complementary nucleotides for each}}
+\DoxyCodeLine{54     \textcolor{comment}{// nucleotide in validNucleotides}}
+\DoxyCodeLine{55     \textcolor{keyword}{const} std::string COMPLEMENTARY\_NUCLEOTIDES = \textcolor{stringliteral}{"{}TGCA"{}};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{comment}{// This is a constant with the dimension of the array kmers}}
+\DoxyCodeLine{58     \textcolor{keyword}{const} \textcolor{keywordtype}{int} DIM\_ARRAY\_KMERS = 100;}
+\DoxyCodeLine{59     }
+\DoxyCodeLine{60     \textcolor{comment}{// This is the array where the kmers of the input genetic sequence will be}}
+\DoxyCodeLine{61     \textcolor{comment}{// saved}}
+\DoxyCodeLine{62     \mbox{\hyperlink{classKmer}{Kmer}} kmers[DIM\_ARRAY\_KMERS];}
+\DoxyCodeLine{63     }
+\DoxyCodeLine{64     \textcolor{comment}{// This is the array where the complementary kmers will be}}
+\DoxyCodeLine{65     \textcolor{comment}{// saved}}
+\DoxyCodeLine{66     \mbox{\hyperlink{classKmer}{Kmer}} complementaryKmers[DIM\_ARRAY\_KMERS];}
+\DoxyCodeLine{67     }
+\DoxyCodeLine{68     \textcolor{comment}{// Read K (integer) and a string with the input nucleotides list}}
+\DoxyCodeLine{69     }
+\DoxyCodeLine{70     std::cin >> k >> genetic\_sequence;}
+\DoxyCodeLine{71     }
+\DoxyCodeLine{72     \textcolor{keywordtype}{int} sequence\_size = genetic\_sequence.\mbox{\hyperlink{classKmer_a20154d7f1b00e893ecaf05cdf4221859}{size}}(); \textcolor{comment}{// To avoid comparing signed a}}
+\DoxyCodeLine{73                                                  \textcolor{comment}{// and unsigned ints.}}
+\DoxyCodeLine{74     \textcolor{keywordtype}{int} kmers\_used = 0;}
+\DoxyCodeLine{75     }
+\DoxyCodeLine{76     \textcolor{comment}{// We make sure we won't accept a sequence longer than the dimension of our}}
+\DoxyCodeLine{77     \textcolor{comment}{// array.}}
+\DoxyCodeLine{78     }
+\DoxyCodeLine{79     \textcolor{keywordflow}{if} (sequence\_size > DIM\_ARRAY\_KMERS \&\& k < sequence\_size)}
+\DoxyCodeLine{80         sequence\_size = DIM\_ARRAY\_KMERS + k -\/ 1;}
+\DoxyCodeLine{81     }
+\DoxyCodeLine{82     \textcolor{comment}{// Obtain the kmers: find the kmers in }}
+\DoxyCodeLine{83     \textcolor{comment}{// the input string and put them in an array of Kmers}}
+\DoxyCodeLine{84     }
+\DoxyCodeLine{85     \textcolor{comment}{// First we will run through the whole string.}}
+\DoxyCodeLine{86     }
+\DoxyCodeLine{87     }
+\DoxyCodeLine{88     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < (sequence\_size -\/ k + 1); i++) \{}
+\DoxyCodeLine{89     }
+\DoxyCodeLine{90         \textcolor{comment}{// We create a k sized implicit string which will be used to contain the}}
+\DoxyCodeLine{91         \textcolor{comment}{// nucleotides to initialize the Kmer.        }}
+\DoxyCodeLine{92         }
+\DoxyCodeLine{93         std::string k\_nucleotides;}
+\DoxyCodeLine{94         }
+\DoxyCodeLine{95         \textcolor{comment}{// Move from the position we're at in the string until we cover "{}k"{} }}
+\DoxyCodeLine{96         \textcolor{comment}{// places, that will be our kmer.}}
+\DoxyCodeLine{97         }
+\DoxyCodeLine{98         k\_nucleotides = genetic\_sequence.substr(i,k);}
+\DoxyCodeLine{99         }
+\DoxyCodeLine{100         \textcolor{comment}{// Now that we have all the nucleotides we need in the string we create}}
+\DoxyCodeLine{101         \textcolor{comment}{// the k sized Kmer.}}
+\DoxyCodeLine{102         }
+\DoxyCodeLine{103         \mbox{\hyperlink{classKmer}{Kmer}} new\_Kmer (k\_nucleotides);}
+\DoxyCodeLine{104         }
+\DoxyCodeLine{105         \textcolor{comment}{// After having created the kmer, we add it to the array.}}
+\DoxyCodeLine{106         }
+\DoxyCodeLine{107         kmers[kmers\_used] = new\_Kmer;}
+\DoxyCodeLine{108         }
+\DoxyCodeLine{109         \textcolor{comment}{// We normalize it.}}
+\DoxyCodeLine{110         }
+\DoxyCodeLine{111         kmers[kmers\_used].\mbox{\hyperlink{classKmer_ac4f03c56da85aed417d2139199e7a6bd}{normalize}}(VALID\_NUCLEOTIDES);}
+\DoxyCodeLine{112         }
+\DoxyCodeLine{113         kmers\_used ++;}
+\DoxyCodeLine{114         }
+\DoxyCodeLine{115         \textcolor{comment}{// Obtain the complementary kmers and turn them into lowercase}}
+\DoxyCodeLine{116         }
+\DoxyCodeLine{117         \textcolor{comment}{// First let's create the implicit kmer which will eventually become}}
+\DoxyCodeLine{118         \textcolor{comment}{// our complementary.}}
+\DoxyCodeLine{119         }
+\DoxyCodeLine{120         \mbox{\hyperlink{classKmer}{Kmer}} complementary\_kmer(k);}
+\DoxyCodeLine{121         }
+\DoxyCodeLine{122         complementary\_kmer = kmers[i].\mbox{\hyperlink{classKmer_a5573b9ac8221d4fd2f11b30bfc7d0c7a}{complementary}}(VALID\_NUCLEOTIDES, }
+\DoxyCodeLine{123                                                     COMPLEMENTARY\_NUCLEOTIDES);}
+\DoxyCodeLine{124         }
+\DoxyCodeLine{125         \mbox{\hyperlink{Kmer_8cpp_a77194578942a94dd58a0d5721ffa89d4}{ToLower}}(complementary\_kmer);}
+\DoxyCodeLine{126         }
+\DoxyCodeLine{127         complementaryKmers[i] = complementary\_kmer;}
+\DoxyCodeLine{128         }
+\DoxyCodeLine{129     \}   }
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     \textcolor{comment}{// Show the list of kmers and complementary kmers as in the example}}
+\DoxyCodeLine{132     }
+\DoxyCodeLine{133     std::cout << kmers\_used << std::endl;}
+\DoxyCodeLine{134     }
+\DoxyCodeLine{135     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < kmers\_used; i++) \{}
+\DoxyCodeLine{136         std::string output;}
+\DoxyCodeLine{137         output = kmers[i].\mbox{\hyperlink{classKmer_ae394adf5587405c5204a07df6b95cebb}{toString}}() + \textcolor{stringliteral}{"{}<-\/-\/>"{}} + }
+\DoxyCodeLine{138                                      complementaryKmers[i].\mbox{\hyperlink{classKmer_ae394adf5587405c5204a07df6b95cebb}{toString}}();}
+\DoxyCodeLine{139         std::cout << output << std::endl;}
+\DoxyCodeLine{140     \}}
+\DoxyCodeLine{141     }
+\DoxyCodeLine{142     \textcolor{keywordflow}{return} (0);}
+\DoxyCodeLine{143 \}}
+
+\end{DoxyCode}

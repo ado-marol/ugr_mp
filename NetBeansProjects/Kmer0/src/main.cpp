@@ -3,14 +3,10 @@
  * Curso 2023/2024
  */
 
-/* 
- * File:   main.cpp
- * @author Silvia Acid Carrillo <acid@decsai.ugr.es>
- * @author Andrés Cano Utrera <acu@decsai.ugr.es>
- * @author Luis Castillo Vidal <L.Castillo@decsai.ugr.es>
- * @author Javier Martínez Baena <jbaena@ugr.es>
- *
- * Created on 24 October 2023, 13:58
+/**
+ * @file:   main.cpp
+ * @author  Adolfo Martínez Olmedo 
+ * Created on 05 March 2024, 15:00
  */
 
 #include <iostream>
@@ -38,6 +34,11 @@ GCCC_<-->cggg_
 CCC_G<-->ggg_c
 CC_G_<-->gg_c_
 C_G_G<-->g_c_c
+ */
+
+/**
+ * @brief Main function
+ * @return Always 0
  */
 int main(int argc, char* argv[]) {
     
@@ -68,9 +69,9 @@ int main(int argc, char* argv[]) {
     
     std::cin >> k >> genetic_sequence;
     
-    int sequence_size = genetic_sequence.size(); // To avoid comparing signed and unsigned ints.
+    int sequence_size = genetic_sequence.size(); // To avoid comparing signed a
+                                                 // and unsigned ints.
     int kmers_used = 0;
-    int complementaries_used = 0;
     
     // We make sure we won't accept a sequence longer than the dimension of our
     // array.
@@ -78,7 +79,8 @@ int main(int argc, char* argv[]) {
     if (sequence_size > DIM_ARRAY_KMERS && k < sequence_size)
         sequence_size = DIM_ARRAY_KMERS + k - 1;
     
-    // Obtain the kmers: find the kmers in the input string and put them in an array of Kmers
+    // Obtain the kmers: find the kmers in 
+    // the input string and put them in an array of Kmers
     
     // First we will run through the whole string.
     
@@ -93,9 +95,7 @@ int main(int argc, char* argv[]) {
         // Move from the position we're at in the string until we cover "k" 
         // places, that will be our kmer.
         
-        for (int j = 0; j < k; j ++) {
-            k_nucleotides += genetic_sequence.at(i + j);
-        }
+        k_nucleotides = genetic_sequence.substr(i,k);
         
         // Now that we have all the nucleotides we need in the string we create
         // the k sized Kmer.
@@ -105,46 +105,43 @@ int main(int argc, char* argv[]) {
         // After having created the kmer, we add it to the array.
         
         kmers[kmers_used] = new_Kmer;
+        
+        // We normalize it.
+        
+        kmers[kmers_used].normalize(VALID_NUCLEOTIDES);
+        
         kmers_used ++;
         
-    }
-    
-    // Normalize each Kmer in the array
-    
-    // For this we can use a simple for loop.
-    
-    for (int i = 0; i < kmers_used; i ++) {
-        kmers[i].normalize(VALID_NUCLEOTIDES);
-    }
-    
-
-    // Obtain the complementary kmers and turn them into lowercase
-    
-    // Again, we can do this while using a for loop, we will be filling up the 
-    // complementary kmer array as we go.
-    
-    for (int i = 0; i < kmers_used; i++) {
+        // Obtain the complementary kmers and turn them into lowercase
+        
         // First let's create the implicit kmer which will eventually become
         // our complementary.
         
-        Kmer complementary_kmer(k); // ASK ABOUT THIS!!!!!!!!
+        Kmer complementary_kmer(k);
         
-        complementary_kmer = kmers[i].complementary(VALID_NUCLEOTIDES, COMPLEMENTARY_NUCLEOTIDES);
+        // Make it complementary by using the method in the class.
+        
+        complementary_kmer = kmers[i].complementary(VALID_NUCLEOTIDES, 
+                                                    COMPLEMENTARY_NUCLEOTIDES);
+        
+        // Make it lowercase
         
         ToLower(complementary_kmer);
         
-        complementaryKmers[complementaries_used] = complementary_kmer;
-        complementaries_used ++;
+        // Add it to the array
         
-    }
-    
-    // Show the list of kmers and complementary kmers as in the example
+        complementaryKmers[i] = complementary_kmer;
+        
+    }   
+
+    // Show the list of used kmers and complementary kmers as in the example
     
     std::cout << kmers_used << std::endl;
     
     for(int i = 0; i < kmers_used; i++) {
         std::string output;
-        output = kmers[i].toString() + "<-->" + complementaryKmers[i].toString();
+        output = kmers[i].toString() + "<-->" + 
+                                     complementaryKmers[i].toString();
         std::cout << output << std::endl;
     }
     
