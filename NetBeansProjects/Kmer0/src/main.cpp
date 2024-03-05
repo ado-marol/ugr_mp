@@ -39,7 +39,6 @@ CCC_G<-->ggg_c
 CC_G_<-->gg_c_
 C_G_G<-->g_c_c
  */
-
 int main(int argc, char* argv[]) {
     
     int k; 
