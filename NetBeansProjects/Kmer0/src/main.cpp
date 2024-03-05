@@ -18,7 +18,6 @@
 
 #include "Kmer.h"
 
-using namespace std;
 
 /**
  * This program first reads from the standard input an integer k (length of Kmer)
@@ -41,14 +40,18 @@ CC_G_<-->gg_c_
 C_G_G<-->g_c_c
  */
 int main(int argc, char* argv[]) {
+    
+    int k; 
+    std::string genetic_sequence;
+
     // This string contains the list of nucleotides that are considered as
     // valid within a genetic sequence. The rest of characters are considered as
     // unknown nucleotides 
-    const string VALID_NUCLEOTIDES = "ACGT";
+    const std::string VALID_NUCLEOTIDES = "ACGT";
     
     // This string contains the list of complementary nucleotides for each
     // nucleotide in validNucleotides
-    const string COMPLEMENTARY_NUCLEOTIDES = "TGCA";
+    const std::string COMPLEMENTARY_NUCLEOTIDES = "TGCA";
 
     // This is a constant with the dimension of the array kmers
     const int DIM_ARRAY_KMERS = 100;
@@ -62,14 +65,81 @@ int main(int argc, char* argv[]) {
     Kmer complementaryKmers[DIM_ARRAY_KMERS];
     
     // Read K (integer) and a string with the input nucleotides list
-
+    
+    std::cin >> k >> genetic_sequence;
+    
+    int sequence_size = genetic_sequence.size(); // To avoid comparing signed and unsigned ints.
+    int kmers_used = 0;
+    int complementaries_used = 0;
+    
     // Obtain the kmers: find the kmers in the input string and put them in an array of Kmers
     
+    // First we will run through the whole string.
+    
+    for (int i = 0; i < (sequence_size - k + 1); i++) {
+    
+        // We create a k sized implicit string which will be used to contain the
+        // nucleotides to initialize the Kmer.        
+        
+        std::string k_nucleotides;
+        
+        // Move from the position we're at in the string until we cover "k" 
+        // places, that will be our kmer.
+        
+        for (int j = 0; j < k; j ++) {
+            k_nucleotides += genetic_sequence.at(i + j);
+        }
+        
+        // Now that we have all the nucleotides we need in the string we create
+        // the k sized Kmer.
+        
+        Kmer new_Kmer (k_nucleotides);
+        
+        // After having created the kmer, we add it to the array.
+        
+        kmers[kmers_used] = new_Kmer;
+        kmers_used ++;
+        
+    }
+    
     // Normalize each Kmer in the array
+    
+    // For this we can use a simple for loop.
+    
+    for (int i = 0; i < kmers_used; i ++) {
+        kmers[i].normalize(VALID_NUCLEOTIDES);
+    }
+    
 
     // Obtain the complementary kmers and turn them into lowercase
-
+    
+    // Again, we can do this while using a for loop, we will be filling up the 
+    // complementary kmer array as we go.
+    
+    for (int i = 0; i < kmers_used; i++) {
+        // First let's create the implicit kmer which will eventually become
+        // our complementary.
+        
+        Kmer complementary_kmer(k); // ASK ABOUT THIS!!!!!!!!
+        
+        complementary_kmer = kmers[i].complementary(VALID_NUCLEOTIDES, COMPLEMENTARY_NUCLEOTIDES);
+        
+        ToLower(complementary_kmer);
+        
+        complementaryKmers[complementaries_used] = complementary_kmer;
+        complementaries_used ++;
+        
+    }
+    
     // Show the list of kmers and complementary kmers as in the example
     
-    return 0;
+    std::cout << k << std::endl;
+    
+    for(int i = 0; i < kmers_used; i++) {
+        std::string output;
+        output = kmers[i].toString() + "<-->" + complementaryKmers[i].toString();
+        std::cout << output << std::endl;
+    }
+    
+    return (0);
 }

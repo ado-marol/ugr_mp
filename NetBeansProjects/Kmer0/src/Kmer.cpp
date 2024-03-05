@@ -104,8 +104,11 @@ void Kmer::normalize(const std::string& validNucleotides)
     // the characters to uppercase then it replaces any invalid character.
     
     // 1. Converting:
-    int size = _text.size();
-    ToUpper(_text);
+    int size = _text.size(); // In order to prevent signed problems
+    
+    for (int i = 0; i < size; i ++) {
+        _text.at(i) = std::toupper(_text.at(i));
+    }
     
     // As a reference is used in the function's parameters, it will modify
     // the string converting it to uppercase.
@@ -143,10 +146,85 @@ Kmer Kmer::complementary(const std::string& nucleotides,
                         " nucleotides and complementary nucleotides cannot be" +
                         " differently sized");
     }
+    else {
+        int text_size = _text.size();                      // In order to prevent signed problems
+        int nucleotide_size = nucleotides.size();          // In order to prevent signed problems
+        Kmer complementary_kmer(text_size);                // We create the object we're gonna return
+        complementary_kmer._text = _text;
+
+        // We will use two for loops, one to run through our Kmer and another one 
+        // to, for each individual character, convert it into its complementary.
     
-    // First we assign the variable nucleotides with the Kmer in our class.
+        for (int i = 0; i < text_size; i++) {
+            // We move through our Kmer 
+            
+            bool complemented = false;
+            int pos = 0;
+            
+            while (pos < nucleotide_size && !complemented) {
+                
+                // We check which Nucleotide in specific we're studying in our Kmer
+                // depending on which one it is we match it with the corresponding
+                // complementary nucleotide. If it doesn't match any of the valid 
+                // ones, then we will do nothing and it will stay the same.
+                // As soon as we have interchanged them, the process is done 
+                // and we exit the while loop
+                
+                if (complementary_kmer.at(i) == nucleotides.at(pos)){
+                    complementary_kmer._text.at(i) = complementaryNucleotides.at(pos); 
+                    complemented = true;
+                }
+                else pos ++;
+            }
+
+        }
+
+        return (complementary_kmer);
+    }
     
-    nucleotides = _text;
+}
+
+bool IsValidNucleotide(char nucleotide, const std::string& validNucleotides)
+{
+    bool value = false; // First initialize the value as false to go in the loop
+    
+    int size = validNucleotides.size(); // In order to avoid signed/unsigned integers
+    
+    // We will use a while loop in order to minimize the amount of comparisons
+    // so we can exit it if we find the nucleotide to be valid.
+    
+    int pos = 0;
+    
+    while (pos < size && !value) {
+        
+        if (nucleotide == validNucleotides.at(pos)) value = true; // if it belongs to the valid ones, we're done.
+        
+        else pos ++; // if it doesn't, we move to the next valid nucleotide.
+    }
+    
+    return (value);
+}
+
+void ToLower(Kmer& kmer)
+{
+    int size = kmer.size(); // To prevent problems with signed/unsigned ints
+    
+    for (int i = 0; i < size; i++) { // We run through our Kmer, converting to lowercase any letter which 
+                                     // isn't already
+        
+        kmer.at(i) = std::tolower(kmer.at(i));
+    }
+    
+}
+
+void ToUpper(Kmer& kmer)
+{
+    int size = kmer.size(); // To prevent problems with signed/unsigned ints
+    
+    for (int i = 0; i < size; i++) { // We run through our Kmer, converting to uppercase any letter which
+        
+        kmer.at(i) = std::toupper(kmer.at(i));
+    }
     
 }
 
