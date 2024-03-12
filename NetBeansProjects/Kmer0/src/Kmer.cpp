@@ -25,9 +25,8 @@ Kmer::Kmer(int k /* =1 */)
     } // Throws error message when precondition is violated
     
     else{ // k > 0
-        for(int i = 0; i < k; i++) { 
-            _text += MISSING_NUCLEOTIDE; 
-        } // Fills a "k" sized Kmer with the default character '_'
+        std::string temporary_kmer(k,MISSING_NUCLEOTIDE); // Use the string constructor
+        _text = temporary_kmer;                          
     }
     
 }
@@ -78,10 +77,9 @@ const char& Kmer::at(int index) const
             std::string("const char& Kmer::at(int index) const: ") +
                         "invalid position " + std::to_string(index));
     }
-    else{
-        return (_text.at(index)); // Returns a constant reference to  
-                                  // the character in a given position.
-    }   
+    
+    return (_text.at(index)); // Returns a constant reference to  
+                              // the character in a given position.
 }
 
 char& Kmer::at(int index) 
@@ -92,10 +90,9 @@ char& Kmer::at(int index)
             std::string("char& Kmer::at(int index) const: ") +
                         "invalid position " + std::to_string(index));
     }
-    else{
-        return (_text.at(index)); // Returns a reference to the character  
-                                  //  in a given position.
-    }   
+    
+    return (_text.at(index)); // Returns a reference to the character  
+                              //  in a given position. 
 }
 
 void Kmer::normalize(const std::string& validNucleotides)
@@ -108,7 +105,7 @@ void Kmer::normalize(const std::string& validNucleotides)
     
     for (int i = 0; i < size; i ++) {
         _text.at(i) = std::toupper(_text.at(i));
-    }
+    } // crear un kmero auxiliar y usar toupper, luego asignarle al _text de la clase el valor del text del kmero que hemos alterado.
     
     // 2. Formatting:
     
@@ -143,61 +140,49 @@ Kmer Kmer::complementary(const std::string& nucleotides,
                         " nucleotides and complementary nucleotides cannot be" +
                         " differently sized");
     }
-    else {
-        int text_size = _text.size();             // In order to prevent signed problems
-        int nucleotide_size = nucleotides.size(); // In order to prevent signed problems
-        Kmer complementary_kmer(text_size);       // We create the object we're gonna return
-        complementary_kmer._text = _text;
-
-        // We will use two for loops, one to run through our Kmer and another one 
-        // to, for each individual character, convert it into its complementary.
     
-        for (int i = 0; i < text_size; i++) {
-            // We move through our Kmer 
-            
-            bool complemented = false;
-            int pos = 0;
-            
-            while (pos < nucleotide_size && !complemented) {
-                
-                // We check which Nucleotide in specific we're studying in our Kmer.
-                // Depending on which one it is we match it with the corresponding
-                // complementary nucleotide. If it doesn't match any of the valid 
-                // ones, then we will do nothing and it will stay the same.
-                // As soon as we have interchanged them, the process is done 
-                // and we exit the while loops
-                
-                if (complementary_kmer.at(i) == nucleotides.at(pos)){
-                    complementary_kmer._text.at(i) = complementaryNucleotides.at(pos); 
-                    complemented = true;
-                }
-                else pos ++;
-            }
+    int text_size = _text.size();             // In order to prevent signed problems
+    Kmer complementary_kmer(_text);       // We create the object we're gonna return
 
+    // We will use two for loops, one to run through our Kmer and another one 
+    // to, for each individual character, convert it into its complementary.
+    
+    for (int i = 0; i < text_size; i++) {
+        // We move through our Kmer 
+        
+        // For each character in our Kmer, we find the position of the corresponding
+        // nucleotide
+        int pos_nucleotide = nucleotides.find(complementary_kmer.at(i));
+        
+        if (pos_nucleotide != -1){
+            // If the position is valid (which means that this nucleotide belongs
+            // to the valid ones, we replace it with the complementary nu
+            
+            complementary_kmer.at(i) = complementaryNucleotides.at(pos_nucleotide);
+            
         }
+        
+    } // for
 
-        return (complementary_kmer);
-    }
+    return (complementary_kmer);
     
 }
 
 bool IsValidNucleotide(char nucleotide, const std::string& validNucleotides)
 {
-    bool value = false; // First initialize the value as false to go in the loop
+    bool value = false; // First initialize the value as false to save computing time.
     
-    int size = validNucleotides.size(); // In order to avoid signed/unsigned integers
+    int position;
     
-    // We will use a while loop in order to minimize the amount of comparisons
-    // so we can exit it if we find the nucleotide to be valid.
+    position = validNucleotides.find(nucleotide);
     
-    int pos = 0;
+    // This method in the string class will return the position of the nucleotide
+    // if it belongs in the valid ones, if it doesn't belong there it will return "-1"
+    // hence, if it is not -1 the nucleotide does belong within the valid ones.
     
-    while (pos < size && !value) {
+    if (position != -1)
+        value = true;
         
-        if (nucleotide == validNucleotides.at(pos)) value = true; // if it belongs to the valid ones, we're done.
-        
-        else pos ++; // if it doesn't, we move to the next valid nucleotide.
-    }
     
     return (value);
 }
