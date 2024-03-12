@@ -103,30 +103,32 @@ void Kmer::normalize(const std::string& validNucleotides)
     // 1. Converting:
     int size = _text.size(); // In order to prevent signed problems
     
-    for (int i = 0; i < size; i ++) {
-        _text.at(i) = std::toupper(_text.at(i));
-    } // crear un kmero auxiliar y usar toupper, luego asignarle al _text de la clase el valor del text del kmero que hemos alterado.
+    Kmer auxiliary_kmer(_text); // We create a "helper" kmer which we will work on, then
+                                // assign it's text to the one in the class.
+    
+    ToUpper(auxiliary_kmer);    // Efficiently make use of the function.
     
     // 2. Formatting:
     
     
-    for (int i = 0; i < size; i++) {
-        // First we run through the string
-        
-        
-        // Then we check if the character we're looking at matches any of the 
+    for (int i = 0; i < size; i++) { 
+        // We check if the character we're looking at matches any of the 
         // valid ones, if it doesn't we switch it with our constant 
         // MISSING_NUCLEOTIDE character
         // We can efficiently make use of our function.
         
-        if (!IsValidNucleotide(_text.at(i),validNucleotides)){
-            _text.at(i) = MISSING_NUCLEOTIDE;
+        if (!IsValidNucleotide(auxiliary_kmer.at(i),validNucleotides)){
+            auxiliary_kmer.at(i) = MISSING_NUCLEOTIDE;
         }
              
         // If it matches one of the valid ones we simply move on to study
         // the next character.
             
     }
+    
+    // We assign the value of the auxiliary to the one in the class.
+    
+    _text = auxiliary_kmer._text;
     
 }
 

@@ -4,13 +4,18 @@
  */
 
 /** 
- * @file KmerFreq.cpp
- * @author Silvia Acid Carrillo <acid@decsai.ugr.es>
- * @author Andrés Cano Utrera <acu@decsai.ugr.es>
- * @author Luis Castillo Vidal <L.Castillo@decsai.ugr.es>
- * @author Javier Martínez Baena <jbaena@ugr.es>
- * 
- * Created on 27 de octubre de 2023, 11:03
+ * @file Kmer.cpp
+ * @author Adolfo Martínez Olmedo <adolfomarol@correo.ugr.es>
+ *
+ * Created on 12 March 2024, 19:00
  */
 
+#include <iostream>
 #include "KmerFreq.h"
+
+/////////////////////////////////////////////////////////////////
+
+KmerFreq::KmerFreq(): _frequency(0), _kmer(Kmer())
+{ }
+
+

@@ -76,13 +76,22 @@ int main(int argc, char* argv[]) {
     // We make sure we won't accept a sequence longer than the dimension of our
     // array.
     
-    if (sequence_size > DIM_ARRAY_KMERS && k < sequence_size)
-        sequence_size = DIM_ARRAY_KMERS + k - 1;
+    // If the length of each kmer is larger than the size of the genetic 
+    // string sequence, we crop it to be equal to the sequence size, adding 
+    // 1 to compensate for the fact that string begins in position 0.
+    if (k > sequence_size)
+        k = sequence_size +1;
     
-    // OKAY SO: WE NEED TO CHECK BOTH THAT K IS LESS THAN THE SEQUENCE AND THAT
-    // THE FINAL ARRAY OF KMERS ISNT LARGER THAN THE DIM_ARRAY_KMERS.
-    // WTF AM I DOING HERE I DONT UNDERSTAND THIS COMPARAISON AND I DONT UNDERSTAND WHY IT WORKS.
-    // WE NEED TO FIX THIS IF AND UNDERSTAND IT, AFTER IT WE ARE OK TO BEGIN KMER1.
+    // If the total number of kmers (sequence_size - k + 1) is larger than 
+    // the dimension of our array, we make sure that it will be equal to it.
+    // We follow this simple mathematical process:
+    /*
+        sequence_size - k + 1 = DIM_ARRAY_KMERS =>
+        sequence_size = DIM_ARRAY_KMERS + k - 1
+    */
+    
+    if ((sequence_size - k + 1) > DIM_ARRAY_KMERS) 
+        sequence_size = DIM_ARRAY_KMERS + k - 1;
     
     // Obtain the kmers: find the kmers in 
     // the input string and put them in an array of Kmers

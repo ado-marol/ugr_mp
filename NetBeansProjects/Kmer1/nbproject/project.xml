@@ -24,5 +24,13 @@
                 <project-formatting-style>false</project-formatting-style>
             </formatting>
         </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>const</word>
+            <word>cpp</word>
+            <word>Curso</word>
+            <word>ints</word>
+            <word>Metodología</word>
+            <word>Programación</word>
+        </spellchecker-wordlist>
     </configuration>
 </project>

@@ -13,12 +13,12 @@
  * Created on 27 October 2023, 12:00
  */
 
-
+#include <iostream>
 #include "ArrayKmerFreqFunctions.h"
 
 
 void NormalizeArrayKmerFreq(KmerFreq array[], int nElements, 
-        string validNucleotides){ 
+        std::string validNucleotides){ 
     
     // Loop to traverse and normalize each one of the kmers in array
           // Normalize kmer i
