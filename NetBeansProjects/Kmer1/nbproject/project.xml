@@ -29,8 +29,13 @@
             <word>cpp</word>
             <word>Curso</word>
             <word>ints</word>
+            <word>kmers</word>
             <word>Metodología</word>
+            <word>omg</word>
             <word>Programación</word>
+            <word>quicksort</word>
+            <word>subarrays</word>
+            <word>theres</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

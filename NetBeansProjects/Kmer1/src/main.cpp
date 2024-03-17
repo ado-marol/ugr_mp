@@ -41,7 +41,19 @@ using namespace std;
 CC 3
 GC 2
  */
-int main(int argc, char* argv[]) {
+
+
+/////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////
+
+int main(int argc, char* argv[]) { 
     // This string contains the list of nucleotides that are considered as
     // valid within a genetic sequence. The rest of characters are considered as
     // unknown nucleotides 
@@ -58,17 +70,39 @@ int main(int argc, char* argv[]) {
 
     // Read an integer n (number of pairs to read)
     
+    std::cin >> nKmers; 
+    
     // Read the n pairs kmers-frequency from the standard input and put them 
     //      in the array kmers
     
+    // To read the pairs we use the designated function.
+    
+    ReadArrayKmerFreq(kmers, DIM_ARRAY_KMERS, nKmers);
+    
+    
     // Normalizes each kmer in the array kmers
+    
+    NormalizeArrayKmerFreq(kmers, nKmers, VALID_NUCLEOTIDES);
     
     // Zip the kmers in the array kmers
     
+    bool remove_bad_pairs = true; // We have been asked to delete the elements of the
+                                  // array which contain missing nucleotides.
+    
+    int lowerBound = 0;           // We want to remove the kmers with frequencies
+                                  // smaller or equal to this lower bound
+    
+    ZipArrayKmerFreq(kmers, nKmers, remove_bad_pairs, lowerBound);
+    
     // Sort the array kmers
     
-    // Print the array kmers in the standard output
+    SortArrayKmerFreq(kmers, nKmers);
+    
+    // Print the array kmers in the standard output <<
+    
+    PrintArrayKmerFreq(kmers, nKmers); 
 
-    return 0;
+    
+    return (0); 
 }
 

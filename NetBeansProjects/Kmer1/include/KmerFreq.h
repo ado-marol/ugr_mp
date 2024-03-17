@@ -38,7 +38,7 @@ public:
      * Query method
      * @return A const reference to the Kmer of this KmerFreq object
      */
-    Kmer getKmer();
+    const Kmer& getKmer();
 
     /**
      * @brief Gets the frequency of this KmerFreq object
@@ -52,7 +52,7 @@ public:
      * Modifier method
      * @param kmer The new Kmer value for this object. Input parameter
      */
-    void setKmer(Kmer kmer);
+    void setKmer(const Kmer& kmer);
 
     /**
      * @brief Sets the frequency of this KmerFreq object
@@ -70,7 +70,7 @@ public:
      * @return A string with the nucleotide and frequency of the kmer
      * in this object
      */
-    std::string toString();
+    std::string toString() const;
     
 private:
     Kmer _kmer; ///< the Kmer object

@@ -28,7 +28,7 @@
  * @param nElements The number of elements used by the array. Note that this
  * integer could be modified in this function. Output parameter
 */
-void ReadArrayKmerFreq(KmerFreq array[], int dim, int nElements);
+void ReadArrayKmerFreq(KmerFreq array[], int dim, int& nElements);
 
 /**
  * @brief Prints in the standard output the number of used elements and the 
@@ -64,6 +64,26 @@ void SwapElementsArrayKmerFreq(KmerFreq array[], int nElements, int first,
  */
 int FindKmerInArrayKmerFreq(KmerFreq array[], Kmer kmer,
         int initialPos, int finalPos);
+
+
+/**
+ * @brief Partitions the array and returns the pivot index
+ * @param array An array of KmerFreq. Input parameter
+ * @param low Index of the smallest element. Input parameter
+ * @param high Index of the largest element. Input parameter
+*/
+int Partition(KmerFreq array[], int low, int high, int nElements);
+
+/**
+ * @brief Main quicksort function. Recursively sorts the array by using our 
+ * two previously declared functions
+ * @param array An array of KmerFreq. Input parameter
+ * @param low Index of the smallest element. Input parameter
+ * @param high Index of the largest element. Input parameter
+*/
+void QuickSort(KmerFreq array[], int low, int high, int nElements);
+
+
 
 /**
  * @brief Sorts the given array of KmerFreq in decreasing order of
@@ -110,7 +130,7 @@ _G 5
  * @param validNucleotides a string with the list of characters (nucleotides) 
  * that should be considered as valid. Input parameter
 */
-void NormalizeArrayKmerFreq(KmerFreq array[], int nElements, 
+void NormalizeArrayKmerFreq(KmerFreq array[], int& nElements, 
         std::string validNucleotides);
 
 /**
@@ -123,7 +143,7 @@ void NormalizeArrayKmerFreq(KmerFreq array[], int nElements,
  * @throw std::out_of_range Throws an std::out_of_range exception if @p pos 
  * is not in the range from 0 to nElements-1 (both included).
  */
-void DeletePosArrayKmerFreq(KmerFreq array[], int nElements, int pos);
+void DeletePosArrayKmerFreq(KmerFreq array[], int& nElements, int pos);
 
 /**
  * @brief Deletes the KmerFreq objects from the argument array which verifies
@@ -142,10 +162,10 @@ void DeletePosArrayKmerFreq(KmerFreq array[], int nElements, int pos);
  * Input parameter
  * @param lowerBound An integer value that defines which KmerFreq objects 
  * should be deleted from the given argument array. KmerFreq objects with a 
- * frequency less or equals to this value, are deleted. This parameter has zero
+ * frequency less or equals to this value, are                     deleted. This parameter has zero
  * as default value. Input parameter
  */
-void ZipArrayKmerFreq(KmerFreq array[], int nElements, 
+void ZipArrayKmerFreq(KmerFreq array[], int& nElements, 
         bool deleteMissing=false, int lowerBound=0);
 
 #endif /* ARRAYKMERFREQFUNCTIONS_H */
