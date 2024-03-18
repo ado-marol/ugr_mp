@@ -19,8 +19,6 @@
 #include "KmerFreq.h"
 #include "ArrayKmerFreqFunctions.h"
 
-using namespace std;
-
 /**
  * This program reads from the stardard input, an integer n (number of 
  * elements in the list of pairs kmer-frequency) and a list of n pairs 
@@ -57,7 +55,7 @@ int main(int argc, char* argv[]) {
     // This string contains the list of nucleotides that are considered as
     // valid within a genetic sequence. The rest of characters are considered as
     // unknown nucleotides 
-    const string VALID_NUCLEOTIDES = "ACGT";
+    const std::string VALID_NUCLEOTIDES = "ACGT";
     
     // This is a constant with the dimension of the array kmers
     const int DIM_ARRAY_KMERS=100;

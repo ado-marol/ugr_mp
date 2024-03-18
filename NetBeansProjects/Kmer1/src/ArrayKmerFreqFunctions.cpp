@@ -171,36 +171,33 @@ void SortArrayKmerFreq(KmerFreq array[], int nElements)
     if (!its_sorted){
         
         QuickSort(array, 0, nElements - 1, nElements);
+    }
+    // And that's it, the quicksort function takes care of sorting the array.
     
-        // And that's it, the quicksort function takes care of sorting the array.
-    
-        // However, we must make sure of one last thing. If two kmers have the same
-        // exact frequency, the one with the first character in alphabetical 
-        // order will be first, let's go through the array and make sure of it.
+    // However, we must make sure of one last thing. If two kmers have the same
+    // exact frequency, the one with the first character in alphabetical 
+    // order will be first, let's go through the array and make sure of it.
         
-        // For this purpose we use two for loops, where the first one goes through
-        // the array, and for each element of the array the second loop
-        // studies if there are any KmerFreq objects with the same frequency but 
-        // which should go earlier in alphabetical order, if it finds one, 
-        // it swaps them in the array, doing this for *every* element in the array
-        // will ensure that it ends up properly sorted. 
-        // (these 10 lines of code took me literally 4 hours of Saturday 
-        //  afternoon omg, who knew you can use ">" between strings).
+    // For this purpose we use two for loops, where the first one goes through
+    // the array, and for each element of the array the second loop
+    // studies if there are any KmerFreq objects with the same frequency but 
+    // which should go earlier in alphabetical order, if it finds one, 
+    // it swaps them in the array, doing this for *every* element in the array
+    // will ensure that it ends up properly sorted. 
+    // (these 10 lines of code took me literally 4 hours of Saturday 
+    //  afternoon omg, who knew you can use ">" between strings).
         
-        for (int i = 0; i < nElements; i++) {
+    for (int i = 0; i < nElements; i++) {
             
-            for (int j = i + 1; j < nElements ; j++) {
+        for (int j = i + 1; j < nElements ; j++) {
                 
-                if ((array[i].getFrequency() == array[j].getFrequency()) &&
-                    (array[i].getKmer().toString() > array[j].getKmer().toString())){   
+            if ((array[i].getFrequency() == array[j].getFrequency()) &&
+                (array[i].getKmer().toString() > array[j].getKmer().toString())){   
                     
-                    SwapElementsArrayKmerFreq(array, nElements, i,j);
-                }
+                SwapElementsArrayKmerFreq(array, nElements, i,j);
             }
         }
-    
-   
-    }
+    }   
 }
 
 void NormalizeArrayKmerFreq(KmerFreq array[], int& nElements, 
