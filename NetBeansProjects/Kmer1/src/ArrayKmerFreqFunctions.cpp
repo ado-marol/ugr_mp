@@ -58,7 +58,7 @@ void ReadArrayKmerFreq(KmerFreq array[], int dim, int& nElements)
     
 }
 
-void PrintArrayKmerFreq(KmerFreq array[], int nElements)
+void PrintArrayKmerFreq(const KmerFreq array[], int nElements)
 {
     // First print the number of kmers.
     
@@ -95,7 +95,7 @@ void SwapElementsArrayKmerFreq(KmerFreq array[], int nElements, int first,
     array[second] = temp;
 }
 
-int FindKmerInArrayKmerFreq(KmerFreq array[], Kmer kmer,
+int FindKmerInArrayKmerFreq(const KmerFreq array[], Kmer& kmer,
         int initialPos, int finalPos)
 {
     int pos_to_find = -1; // If not found, this will be its value.
@@ -323,7 +323,7 @@ void ZipArrayKmerFreq(KmerFreq array[], int& nElements,
         
         if (array[i].getFrequency() <= lowerBound){
             DeletePosArrayKmerFreq(array,nElements,i);
-        }
+        }   
     }
     
 }

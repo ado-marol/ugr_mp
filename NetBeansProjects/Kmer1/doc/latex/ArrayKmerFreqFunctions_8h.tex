@@ -1,0 +1,631 @@
+\hypertarget{ArrayKmerFreqFunctions_8h}{}\doxysection{include/\+Array\+Kmer\+Freq\+Functions.h File Reference}
+\label{ArrayKmerFreqFunctions_8h}\index{include/ArrayKmerFreqFunctions.h@{include/ArrayKmerFreqFunctions.h}}
+{\ttfamily \#include \char`\"{}Kmer\+Freq.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ArrayKmerFreqFunctions_8h_aa72d1f4e21752896649ea626a5b98d96}{Read\+Array\+Kmer\+Freq}} (\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} array\mbox{[}$\,$\mbox{]}, int dim, int \&n\+Elements)
+\begin{DoxyCompactList}\small\item\em Reads the number of used elements and the elements of an array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} If {\ttfamily n\+Elements} is greater than {\ttfamily dim}, then only {\ttfamily dim} elements are read If {\ttfamily n\+Elements} is negative, then zero elements are read. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayKmerFreqFunctions_8h_a959f7cfb4ac563f11d9e55fd6213bbd5}{Print\+Array\+Kmer\+Freq}} (const \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} array\mbox{[}$\,$\mbox{]}, int n\+Elements)
+\begin{DoxyCompactList}\small\item\em Prints in the standard output the number of used elements and the elements of an array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayKmerFreqFunctions_8h_a7b6fb8ddb68668cbd47c93cef0261ac8}{Swap\+Elements\+Array\+Kmer\+Freq}} (\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} array\mbox{[}$\,$\mbox{]}, int n\+Elements, int first, int second)
+\begin{DoxyCompactList}\small\item\em Swaps the elements at positions {\ttfamily first} and {\ttfamily second} in the given array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ArrayKmerFreqFunctions_8h_a91e583f7b4a803d389d50e2692379c49}{Find\+Kmer\+In\+Array\+Kmer\+Freq}} (const \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} array\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{classKmer}{Kmer}} \&kmer, int initial\+Pos, int final\+Pos)
+\begin{DoxyCompactList}\small\item\em Searchs the given \mbox{\hyperlink{classKmer}{Kmer}} in the subarray of {\ttfamily array} that begins at position {\ttfamily initial\+Pos} and ends at position {\ttfamily final\+Pos} (both included) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ArrayKmerFreqFunctions_8h_a90ffd65425314ea1fdd11f852c286699}{Partition}} (\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} array\mbox{[}$\,$\mbox{]}, int low, int high, int n\+Elements)
+\begin{DoxyCompactList}\small\item\em Partitions the array and returns the pivot index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayKmerFreqFunctions_8h_ae1e0a0fbabad375952c75e88219a8340}{Quick\+Sort}} (\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} array\mbox{[}$\,$\mbox{]}, int low, int high, int n\+Elements)
+\begin{DoxyCompactList}\small\item\em Main quicksort function. Recursively sorts the array by using our two previously declared functions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayKmerFreqFunctions_8h_aa5f4265a04597caca7e9d0eb3718fd5e}{Sort\+Array\+Kmer\+Freq}} (\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} array\mbox{[}$\,$\mbox{]}, int n\+Elements)
+\begin{DoxyCompactList}\small\item\em Sorts the given array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} in decreasing order of frequency using a sort algorithm. Note\+: It is not allowed to use any sorting algorithm available in any C++ library. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayKmerFreqFunctions_8h_a53ade2c41e1a4bdff977f11be3808cbf}{Normalize\+Array\+Kmer\+Freq}} (\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} array\mbox{[}$\,$\mbox{]}, int \&n\+Elements, std\+::string valid\+Nucleotides)
+\begin{DoxyCompactList}\small\item\em Normalizes the given array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. That is, for each \mbox{\hyperlink{classKmer}{Kmer}} in the array, all its characters are converted to uppercase. Then, invalid characters are replaced by the UNKNOWN\+\_\+\+NUCLEOTIDE value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayKmerFreqFunctions_8h_a613a337e1425af0022f04bd3a22c5799}{Delete\+Pos\+Array\+Kmer\+Freq}} (\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} array\mbox{[}$\,$\mbox{]}, int \&n\+Elements, int pos)
+\begin{DoxyCompactList}\small\item\em Deletes the \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} object from the argument array that is at position {\ttfamily pos}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayKmerFreqFunctions_8h_a03b1e016c8132a03dfec8914511912c7}{Zip\+Array\+Kmer\+Freq}} (\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} array\mbox{[}$\,$\mbox{]}, int \&n\+Elements, bool delete\+Missing=false, int lower\+Bound=0)
+\begin{DoxyCompactList}\small\item\em Deletes the \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} objects from the argument array which verifies one the following two criteria\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Silvia Acid Carrillo \href{mailto:acid@decsai.ugr.es}{\texttt{ acid@decsai.\+ugr.\+es}} 
+
+Andrés Cano Utrera \href{mailto:acu@decsai.ugr.es}{\texttt{ acu@decsai.\+ugr.\+es}} 
+
+Luis Castillo Vidal \href{mailto:L.Castillo@decsai.ugr.es}{\texttt{ L.\+Castillo@decsai.\+ugr.\+es}} 
+
+Javier Martínez Baena \href{mailto:jbaena@ugr.es}{\texttt{ jbaena@ugr.\+es}}
+\end{DoxyAuthor}
+Created on 27 October 2023, 11\+:00 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ArrayKmerFreqFunctions_8h_a613a337e1425af0022f04bd3a22c5799}\label{ArrayKmerFreqFunctions_8h_a613a337e1425af0022f04bd3a22c5799}} 
+\index{ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}!DeletePosArrayKmerFreq@{DeletePosArrayKmerFreq}}
+\index{DeletePosArrayKmerFreq@{DeletePosArrayKmerFreq}!ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}}
+\doxysubsubsection{\texorpdfstring{DeletePosArrayKmerFreq()}{DeletePosArrayKmerFreq()}}
+{\footnotesize\ttfamily void Delete\+Pos\+Array\+Kmer\+Freq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int \&}]{n\+Elements,  }\item[{int}]{pos }\end{DoxyParamCaption})}
+
+
+
+Deletes the \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} object from the argument array that is at position {\ttfamily pos}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. nput/output parameter \\
+\hline
+{\em n\+Elements} & The number of elements used by the array. Note that the number of elements in the argument array will be modified. Input/output parameter \\
+\hline
+{\em pos} & The index of the position to be deleted. Input parameter \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & Throws an std\+::out\+\_\+of\+\_\+range exception if {\ttfamily pos} is not in the range from 0 to n\+Elements-\/1 (both included). \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 274 of file Array\+Kmer\+Freq\+Functions.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{275 \{}
+\DoxyCodeLine{276     \textcolor{keywordflow}{if} (pos < 0 || pos > nElements)\{    \textcolor{comment}{// Precondition violation.}}
+\DoxyCodeLine{277         \textcolor{keywordflow}{throw} std::out\_of\_range(}
+\DoxyCodeLine{278             std::string(\textcolor{stringliteral}{"{}ArrayKmerFreqFunctions(KmerFreq array[], int nElements, int pos"{}}) +}
+\DoxyCodeLine{279                         \textcolor{stringliteral}{"{} The position 'pos' must be in range of 0 and nElements"{}});}
+\DoxyCodeLine{280         }
+\DoxyCodeLine{281     \} \textcolor{comment}{// Throws error message when precondition is violated}}
+\DoxyCodeLine{282     }
+\DoxyCodeLine{283     \textcolor{comment}{// We move all the elements to the right of pos one spot to the left, }}
+\DoxyCodeLine{284     \textcolor{comment}{// effectively "{}deleting"{} the element at pos.}}
+\DoxyCodeLine{285     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = pos; i < nElements; i ++) \{}
+\DoxyCodeLine{286         }
+\DoxyCodeLine{287         \textcolor{keywordflow}{if} (i != nElements -\/ 1)}
+\DoxyCodeLine{288             array[i] = array[i + 1]; \textcolor{comment}{// Replace the element at i with the one }}
+\DoxyCodeLine{289                                     \textcolor{comment}{// on it's right.}}
+\DoxyCodeLine{290     \}}
+\DoxyCodeLine{291     nElements -\/-\/;}
+\DoxyCodeLine{292     }
+\DoxyCodeLine{293 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ArrayKmerFreqFunctions_8h_a91e583f7b4a803d389d50e2692379c49}\label{ArrayKmerFreqFunctions_8h_a91e583f7b4a803d389d50e2692379c49}} 
+\index{ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}!FindKmerInArrayKmerFreq@{FindKmerInArrayKmerFreq}}
+\index{FindKmerInArrayKmerFreq@{FindKmerInArrayKmerFreq}!ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}}
+\doxysubsubsection{\texorpdfstring{FindKmerInArrayKmerFreq()}{FindKmerInArrayKmerFreq()}}
+{\footnotesize\ttfamily int Find\+Kmer\+In\+Array\+Kmer\+Freq (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{classKmer}{Kmer}} \&}]{kmer,  }\item[{int}]{initial\+Pos,  }\item[{int}]{final\+Pos }\end{DoxyParamCaption})}
+
+
+
+Searchs the given \mbox{\hyperlink{classKmer}{Kmer}} in the subarray of {\ttfamily array} that begins at position {\ttfamily initial\+Pos} and ends at position {\ttfamily final\+Pos} (both included) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} objects. Input parameter \\
+\hline
+{\em kmer} & The \mbox{\hyperlink{classKmer}{Kmer}} to be found. Input parameter \\
+\hline
+{\em initial\+Pos} & The initial position of the subarray. Input parameter \\
+\hline
+{\em final\+Pos} & The final position of the subarray. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the position where the given \mbox{\hyperlink{classKmer}{Kmer}} is in the subarray of {\ttfamily array} that begins at position {\ttfamily initial\+Pos} and ends at position {\ttfamily final\+Pos} (both included). If the given \mbox{\hyperlink{classKmer}{Kmer}} is not found, then -\/1 is returned. 
+\end{DoxyReturn}
+
+
+Definition at line 98 of file Array\+Kmer\+Freq\+Functions.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{100 \{}
+\DoxyCodeLine{101     \textcolor{keywordtype}{int} pos\_to\_find = -\/1; \textcolor{comment}{// If not found, this will be its value.}}
+\DoxyCodeLine{102     }
+\DoxyCodeLine{103     \textcolor{comment}{// We go through the array between the positions specified and try to find }}
+\DoxyCodeLine{104     \textcolor{comment}{// the kmer in question, if we do we log its position and break the search.}}
+\DoxyCodeLine{105     }
+\DoxyCodeLine{106     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = initialPos; i <= finalPos; i++) \{}
+\DoxyCodeLine{107         }
+\DoxyCodeLine{108         \textcolor{keywordflow}{if} (array[i].getKmer().toString() == kmer.\mbox{\hyperlink{classKmer_ae394adf5587405c5204a07df6b95cebb}{toString}}())\{}
+\DoxyCodeLine{109             }
+\DoxyCodeLine{110             pos\_to\_find = i;}
+\DoxyCodeLine{111             }
+\DoxyCodeLine{112             \textcolor{keywordflow}{break}; \textcolor{comment}{// Stop the search}}
+\DoxyCodeLine{113         \}}
+\DoxyCodeLine{114     \}}
+\DoxyCodeLine{115     }
+\DoxyCodeLine{116     \textcolor{keywordflow}{return} (pos\_to\_find);}
+\DoxyCodeLine{117 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ArrayKmerFreqFunctions_8h_a53ade2c41e1a4bdff977f11be3808cbf}\label{ArrayKmerFreqFunctions_8h_a53ade2c41e1a4bdff977f11be3808cbf}} 
+\index{ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}!NormalizeArrayKmerFreq@{NormalizeArrayKmerFreq}}
+\index{NormalizeArrayKmerFreq@{NormalizeArrayKmerFreq}!ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}}
+\doxysubsubsection{\texorpdfstring{NormalizeArrayKmerFreq()}{NormalizeArrayKmerFreq()}}
+{\footnotesize\ttfamily void Normalize\+Array\+Kmer\+Freq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int \&}]{n\+Elements,  }\item[{std\+::string}]{valid\+Nucleotides }\end{DoxyParamCaption})}
+
+
+
+Normalizes the given array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. That is, for each \mbox{\hyperlink{classKmer}{Kmer}} in the array, all its characters are converted to uppercase. Then, invalid characters are replaced by the UNKNOWN\+\_\+\+NUCLEOTIDE value. 
+
+If after the previous normalization process of every kmer, identical kmers are obtained, these will be merged into the first identical kmer by adding their frequencies. For example, suposse the following list of kmers\+: 4 Ct 5 hG 4 nG 1 cT 4
+
+After the process of normalization of every kmer, we obtain the following list of kmers\+:
+
+4 CT 5 \+\_\+G 4 \+\_\+G 1 CT 4
+
+The final step will transform the list into\+: 2 CT 9 \+\_\+G 5
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. Input/output parameter \\
+\hline
+{\em n\+Elements} & The number of elements used by the array. Output parameter \\
+\hline
+{\em valid\+Nucleotides} & a string with the list of characters (nucleotides) that should be considered as valid. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 203 of file Array\+Kmer\+Freq\+Functions.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{205 \{ }
+\DoxyCodeLine{206     }
+\DoxyCodeLine{207     \textcolor{comment}{// Loop to traverse and normalize each one of the kmers in array}}
+\DoxyCodeLine{208           \textcolor{comment}{// Normalize kmer i}}
+\DoxyCodeLine{209     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nElements; i ++) \{}
+\DoxyCodeLine{210         }
+\DoxyCodeLine{211         \textcolor{comment}{// First create an implicit Kmer.}}
+\DoxyCodeLine{212         }
+\DoxyCodeLine{213         \mbox{\hyperlink{classKmer}{Kmer}} normalized (array[i].getKmer());}
+\DoxyCodeLine{214         }
+\DoxyCodeLine{215         \textcolor{comment}{// Then normalize it.}}
+\DoxyCodeLine{216         }
+\DoxyCodeLine{217         normalized.normalize(validNucleotides);}
+\DoxyCodeLine{218         }
+\DoxyCodeLine{219         \textcolor{comment}{// Afterwards, we replace the corresponding kmer in the array with it.}}
+\DoxyCodeLine{220         }
+\DoxyCodeLine{221         array[i].\mbox{\hyperlink{classKmerFreq_a4eb114f842390e0091cda7a2aab9d8ec}{setKmer}}(normalized);}
+\DoxyCodeLine{222     \}}
+\DoxyCodeLine{223     }
+\DoxyCodeLine{224     \textcolor{comment}{// Loop to traverse the kmers in array from position 1 to position nElements-\/1}}
+\DoxyCodeLine{225           \textcolor{comment}{// index = Position of array[i].getKmer() in the subarray that begins}}
+\DoxyCodeLine{226           \textcolor{comment}{//         at position 0 and ends at position i-\/1}}
+\DoxyCodeLine{227           \textcolor{comment}{// If array[i].getKmer() was found in the the subarray from 0 to i-\/1 }}
+\DoxyCodeLine{228                \textcolor{comment}{// Accumulate the frequencies of the kmers at positions }}
+\DoxyCodeLine{229                \textcolor{comment}{//    index and i in the kmer at position index}}
+\DoxyCodeLine{230                \textcolor{comment}{// Delete from the array, the kmer at position i }}
+\DoxyCodeLine{231     }
+\DoxyCodeLine{232     \textcolor{keywordtype}{int} index;}
+\DoxyCodeLine{233     \textcolor{keywordtype}{bool} found = \textcolor{keyword}{true};}
+\DoxyCodeLine{234     }
+\DoxyCodeLine{235     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < nElements; i++) \{}
+\DoxyCodeLine{236         }
+\DoxyCodeLine{237         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < i; j ++) \{}
+\DoxyCodeLine{238             }
+\DoxyCodeLine{239             \textcolor{keywordflow}{if} (array[j].getKmer().toString() == array[i].getKmer().toString())\{  }
+\DoxyCodeLine{240                 \textcolor{comment}{// If so, we have a match.}}
+\DoxyCodeLine{241                 }
+\DoxyCodeLine{242                 }
+\DoxyCodeLine{243                 \textcolor{comment}{// If we indeed find it has already been found before, we }}
+\DoxyCodeLine{244                 \textcolor{comment}{// mark the position using index, and promptly exit the loop.}}
+\DoxyCodeLine{245                 index = j;}
+\DoxyCodeLine{246                 found = \textcolor{keyword}{true};}
+\DoxyCodeLine{247                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{248             \}}
+\DoxyCodeLine{249             }
+\DoxyCodeLine{250             \textcolor{keywordflow}{else} found = \textcolor{keyword}{false}; \textcolor{comment}{// We use this bool to prevent unintended changes.}}
+\DoxyCodeLine{251             }
+\DoxyCodeLine{252         \}}
+\DoxyCodeLine{253         }
+\DoxyCodeLine{254         \textcolor{keywordflow}{if} (found)\{  \textcolor{comment}{// If this exact kmer has been found before.}}
+\DoxyCodeLine{255             }
+\DoxyCodeLine{256             \textcolor{comment}{// first of all copy the frequencies to the one at pos = index.}}
+\DoxyCodeLine{257             }
+\DoxyCodeLine{258             array[index].\mbox{\hyperlink{classKmerFreq_a02f30c44425e7b245e46253c5e532930}{setFrequency}}(array[index].getFrequency() + array[i].getFrequency());}
+\DoxyCodeLine{259             }
+\DoxyCodeLine{260             \textcolor{comment}{// Secondly, "{}delete"{} the second appearance from the array            }}
+\DoxyCodeLine{261             }
+\DoxyCodeLine{262             \mbox{\hyperlink{ArrayKmerFreqFunctions_8cpp_a613a337e1425af0022f04bd3a22c5799}{DeletePosArrayKmerFreq}}(array, nElements, i);}
+\DoxyCodeLine{263             i = i -\/ 1; \textcolor{comment}{// We have to do this in order to compensate for the }}
+\DoxyCodeLine{264                        \textcolor{comment}{// fact that we have moved the elements of the array}}
+\DoxyCodeLine{265                        \textcolor{comment}{// back one place, this way we do this specific for }}
+\DoxyCodeLine{266                        \textcolor{comment}{// instruction once more, because the element at pos "{}i"{}}}
+\DoxyCodeLine{267                        \textcolor{comment}{// is not the same as it was.}}
+\DoxyCodeLine{268             \}}
+\DoxyCodeLine{269         \}}
+\DoxyCodeLine{270     }
+\DoxyCodeLine{271     }
+\DoxyCodeLine{272 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ArrayKmerFreqFunctions_8h_a90ffd65425314ea1fdd11f852c286699}\label{ArrayKmerFreqFunctions_8h_a90ffd65425314ea1fdd11f852c286699}} 
+\index{ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}!Partition@{Partition}}
+\index{Partition@{Partition}!ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}}
+\doxysubsubsection{\texorpdfstring{Partition()}{Partition()}}
+{\footnotesize\ttfamily int Partition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{low,  }\item[{int}]{high,  }\item[{int}]{n\+Elements }\end{DoxyParamCaption})}
+
+
+
+Partitions the array and returns the pivot index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. Input parameter \\
+\hline
+{\em low} & Index of the smallest element. Input parameter \\
+\hline
+{\em high} & Index of the largest element. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 120 of file Array\+Kmer\+Freq\+Functions.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{121 \{}
+\DoxyCodeLine{122     \textcolor{keywordtype}{int} pivot = array[high].\mbox{\hyperlink{classKmerFreq_a7050b1a322f4a846c2c010320826ecd9}{getFrequency}}(); \textcolor{comment}{// Choose the element most on the right as the pivot.}}
+\DoxyCodeLine{123     \textcolor{keywordtype}{int} i = low -\/ 1;                        \textcolor{comment}{// Index of the smaller element}}
+\DoxyCodeLine{124     }
+\DoxyCodeLine{125     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = low; j <= high -\/ 1; j++) \{ \textcolor{comment}{// We go through our partition}}
+\DoxyCodeLine{126         }
+\DoxyCodeLine{127         \textcolor{comment}{// If the frequency at the smaller element is larger than the pivot,}}
+\DoxyCodeLine{128         \textcolor{comment}{// we will swap them.}}
+\DoxyCodeLine{129         \textcolor{keywordflow}{if} (array[j].getFrequency() >= pivot) \{}
+\DoxyCodeLine{130             i++;}
+\DoxyCodeLine{131             \mbox{\hyperlink{ArrayKmerFreqFunctions_8cpp_a7b6fb8ddb68668cbd47c93cef0261ac8}{SwapElementsArrayKmerFreq}}(array, nElements, i, j);}
+\DoxyCodeLine{132         \}}
+\DoxyCodeLine{133     \}}
+\DoxyCodeLine{134     }
+\DoxyCodeLine{135     \mbox{\hyperlink{ArrayKmerFreqFunctions_8cpp_a7b6fb8ddb68668cbd47c93cef0261ac8}{SwapElementsArrayKmerFreq}}(array,nElements, i + 1, high);}
+\DoxyCodeLine{136     \textcolor{keywordflow}{return} (i + 1); \textcolor{comment}{// Return the pivot index}}
+\DoxyCodeLine{137 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ArrayKmerFreqFunctions_8h_a959f7cfb4ac563f11d9e55fd6213bbd5}\label{ArrayKmerFreqFunctions_8h_a959f7cfb4ac563f11d9e55fd6213bbd5}} 
+\index{ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}!PrintArrayKmerFreq@{PrintArrayKmerFreq}}
+\index{PrintArrayKmerFreq@{PrintArrayKmerFreq}!ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}}
+\doxysubsubsection{\texorpdfstring{PrintArrayKmerFreq()}{PrintArrayKmerFreq()}}
+{\footnotesize\ttfamily void Print\+Array\+Kmer\+Freq (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{n\+Elements }\end{DoxyParamCaption})}
+
+
+
+Prints in the standard output the number of used elements and the elements of an array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & The array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} to be printed. Input parameter \\
+\hline
+{\em n\+Elements} & The number of elements used by the array. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 61 of file Array\+Kmer\+Freq\+Functions.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62 \{}
+\DoxyCodeLine{63     \textcolor{comment}{// First print the number of kmers.}}
+\DoxyCodeLine{64     }
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} (nElements > 0)}
+\DoxyCodeLine{66         std::cout << nElements << std::endl;}
+\DoxyCodeLine{67     }
+\DoxyCodeLine{68     \textcolor{comment}{// Afterwards, go through the array printing the kmer, a space and the }}
+\DoxyCodeLine{69     \textcolor{comment}{// frequency right after.}}
+\DoxyCodeLine{70     }
+\DoxyCodeLine{71     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nElements; i++) \{}
+\DoxyCodeLine{72         }
+\DoxyCodeLine{73         std::cout << array[i].\mbox{\hyperlink{classKmerFreq_a88c835ab19d85b09415bf5a10c607154}{getKmer}}().\mbox{\hyperlink{classKmer_ae394adf5587405c5204a07df6b95cebb}{toString}}() << \textcolor{stringliteral}{"{} "{}} }
+\DoxyCodeLine{74                   << array[i].\mbox{\hyperlink{classKmerFreq_a7050b1a322f4a846c2c010320826ecd9}{getFrequency}}() << std::endl;}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76     }
+\DoxyCodeLine{77 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ArrayKmerFreqFunctions_8h_ae1e0a0fbabad375952c75e88219a8340}\label{ArrayKmerFreqFunctions_8h_ae1e0a0fbabad375952c75e88219a8340}} 
+\index{ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}!QuickSort@{QuickSort}}
+\index{QuickSort@{QuickSort}!ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}}
+\doxysubsubsection{\texorpdfstring{QuickSort()}{QuickSort()}}
+{\footnotesize\ttfamily void Quick\+Sort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{low,  }\item[{int}]{high,  }\item[{int}]{n\+Elements }\end{DoxyParamCaption})}
+
+
+
+Main quicksort function. Recursively sorts the array by using our two previously declared functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. Input parameter \\
+\hline
+{\em low} & Index of the smallest element. Input parameter \\
+\hline
+{\em high} & Index of the largest element. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 139 of file Array\+Kmer\+Freq\+Functions.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{140 \{}
+\DoxyCodeLine{141     \textcolor{keywordflow}{if} (low < high) \{}
+\DoxyCodeLine{142         \textcolor{keywordtype}{int} pivotIndex = \mbox{\hyperlink{ArrayKmerFreqFunctions_8cpp_a90ffd65425314ea1fdd11f852c286699}{Partition}}(array, low, high, nElements); \textcolor{comment}{// We get the pivot using}}
+\DoxyCodeLine{143                                                                  \textcolor{comment}{// our partition function}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145         \textcolor{comment}{// Recursively sort the left and right subarrays}}
+\DoxyCodeLine{146         \mbox{\hyperlink{ArrayKmerFreqFunctions_8cpp_ae1e0a0fbabad375952c75e88219a8340}{QuickSort}}(array, low, pivotIndex -\/ 1, nElements);}
+\DoxyCodeLine{147         \mbox{\hyperlink{ArrayKmerFreqFunctions_8cpp_ae1e0a0fbabad375952c75e88219a8340}{QuickSort}}(array, pivotIndex + 1, high, nElements);}
+\DoxyCodeLine{148     \}}
+\DoxyCodeLine{149 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ArrayKmerFreqFunctions_8h_aa72d1f4e21752896649ea626a5b98d96}\label{ArrayKmerFreqFunctions_8h_aa72d1f4e21752896649ea626a5b98d96}} 
+\index{ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}!ReadArrayKmerFreq@{ReadArrayKmerFreq}}
+\index{ReadArrayKmerFreq@{ReadArrayKmerFreq}!ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ReadArrayKmerFreq()}{ReadArrayKmerFreq()}}
+{\footnotesize\ttfamily void Read\+Array\+Kmer\+Freq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{dim,  }\item[{int \&}]{n\+Elements }\end{DoxyParamCaption})}
+
+
+
+Reads the number of used elements and the elements of an array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} If {\ttfamily n\+Elements} is greater than {\ttfamily dim}, then only {\ttfamily dim} elements are read If {\ttfamily n\+Elements} is negative, then zero elements are read. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array where the elements will be stored. Output parameter \\
+\hline
+{\em dim} & The capacity of the array. Input parameter \\
+\hline
+{\em n\+Elements} & The number of elements used by the array. Note that this integer could be modified in this function. Output parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file Array\+Kmer\+Freq\+Functions.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19 \{  }
+\DoxyCodeLine{20     \textcolor{keywordflow}{if} (nElements > dim)}
+\DoxyCodeLine{21         nElements = dim;}
+\DoxyCodeLine{22     }
+\DoxyCodeLine{23     \textcolor{keywordflow}{if} (nElements < 0)}
+\DoxyCodeLine{24         nElements = 0;}
+\DoxyCodeLine{25     }
+\DoxyCodeLine{26     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nElements; i++) \{}
+\DoxyCodeLine{27         \textcolor{comment}{// We create a variable to store the text that will eventually become the}}
+\DoxyCodeLine{28         \textcolor{comment}{// kmer.}}
+\DoxyCodeLine{29         }
+\DoxyCodeLine{30         std::string kmer\_text;}
+\DoxyCodeLine{31         }
+\DoxyCodeLine{32         \textcolor{comment}{// We also create one that will be the frequency.}}
+\DoxyCodeLine{33         }
+\DoxyCodeLine{34         \textcolor{keywordtype}{int} frequency;}
+\DoxyCodeLine{35         }
+\DoxyCodeLine{36         \textcolor{comment}{// We read the text in the kmer and create a kmer object using it.}}
+\DoxyCodeLine{37         }
+\DoxyCodeLine{38         std::cin >> kmer\_text;}
+\DoxyCodeLine{39         \mbox{\hyperlink{classKmer}{Kmer}} a\_kmer(kmer\_text);}
+\DoxyCodeLine{40         }
+\DoxyCodeLine{41         \textcolor{comment}{// We read the frequency.}}
+\DoxyCodeLine{42         }
+\DoxyCodeLine{43         std::cin >> frequency;}
+\DoxyCodeLine{44         }
+\DoxyCodeLine{45         \textcolor{comment}{// Once we have the kmer and its frequency we create a KmerFreq object}}
+\DoxyCodeLine{46         \textcolor{comment}{// and assign the kmer and frequency values we've read.}}
+\DoxyCodeLine{47         }
+\DoxyCodeLine{48         \mbox{\hyperlink{classKmerFreq}{KmerFreq}} kmer\_and\_freq;}
+\DoxyCodeLine{49         }
+\DoxyCodeLine{50         kmer\_and\_freq.\mbox{\hyperlink{classKmerFreq_a4eb114f842390e0091cda7a2aab9d8ec}{setKmer}}(a\_kmer);}
+\DoxyCodeLine{51         }
+\DoxyCodeLine{52         kmer\_and\_freq.\mbox{\hyperlink{classKmerFreq_a02f30c44425e7b245e46253c5e532930}{setFrequency}}(frequency);}
+\DoxyCodeLine{53         }
+\DoxyCodeLine{54         \textcolor{comment}{// Once we have the object created, we add it to the array and repeat.}}
+\DoxyCodeLine{55         }
+\DoxyCodeLine{56         array[i] = kmer\_and\_freq;}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58     }
+\DoxyCodeLine{59 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ArrayKmerFreqFunctions_8h_aa5f4265a04597caca7e9d0eb3718fd5e}\label{ArrayKmerFreqFunctions_8h_aa5f4265a04597caca7e9d0eb3718fd5e}} 
+\index{ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}!SortArrayKmerFreq@{SortArrayKmerFreq}}
+\index{SortArrayKmerFreq@{SortArrayKmerFreq}!ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}}
+\doxysubsubsection{\texorpdfstring{SortArrayKmerFreq()}{SortArrayKmerFreq()}}
+{\footnotesize\ttfamily void Sort\+Array\+Kmer\+Freq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{n\+Elements }\end{DoxyParamCaption})}
+
+
+
+Sorts the given array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} in decreasing order of frequency using a sort algorithm. Note\+: It is not allowed to use any sorting algorithm available in any C++ library. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. Input/output parameter \\
+\hline
+{\em n\+Elements} & The number of elements used by the array. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 152 of file Array\+Kmer\+Freq\+Functions.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{153 \{}
+\DoxyCodeLine{154     }
+\DoxyCodeLine{155     \textcolor{comment}{// Firstly we must make sure that the array is not already sorted.}}
+\DoxyCodeLine{156     }
+\DoxyCodeLine{157     \textcolor{keywordtype}{bool} its\_sorted = \textcolor{keyword}{true};}
+\DoxyCodeLine{158     }
+\DoxyCodeLine{159     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < nElements; i++) \{}
+\DoxyCodeLine{160         }
+\DoxyCodeLine{161         \textcolor{keywordflow}{if} ((array[i -\/ 1].getFrequency()) < array[i].getFrequency())\{}
+\DoxyCodeLine{162             its\_sorted = \textcolor{keyword}{false};}
+\DoxyCodeLine{163             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{164         \}}
+\DoxyCodeLine{165     \}}
+\DoxyCodeLine{166     }
+\DoxyCodeLine{167     \textcolor{comment}{// We will use quick sort as it is infinitely faster than insertion or }}
+\DoxyCodeLine{168     \textcolor{comment}{// Selection sort.}}
+\DoxyCodeLine{169     }
+\DoxyCodeLine{170     \textcolor{comment}{// Call our quicksort function if it is not sorted already}}
+\DoxyCodeLine{171     \textcolor{keywordflow}{if} (!its\_sorted)\{}
+\DoxyCodeLine{172         }
+\DoxyCodeLine{173         \mbox{\hyperlink{ArrayKmerFreqFunctions_8cpp_ae1e0a0fbabad375952c75e88219a8340}{QuickSort}}(array, 0, nElements -\/ 1, nElements);}
+\DoxyCodeLine{174     \}}
+\DoxyCodeLine{175     \textcolor{comment}{// And that's it, the quicksort function takes care of sorting the array.}}
+\DoxyCodeLine{176     }
+\DoxyCodeLine{177     \textcolor{comment}{// However, we must make sure of one last thing. If two kmers have the same}}
+\DoxyCodeLine{178     \textcolor{comment}{// exact frequency, the one with the first character in alphabetical }}
+\DoxyCodeLine{179     \textcolor{comment}{// order will be first, let's go through the array and make sure of it.}}
+\DoxyCodeLine{180         }
+\DoxyCodeLine{181     \textcolor{comment}{// For this purpose we use two for loops, where the first one goes through}}
+\DoxyCodeLine{182     \textcolor{comment}{// the array, and for each element of the array the second loop}}
+\DoxyCodeLine{183     \textcolor{comment}{// studies if there are any KmerFreq objects with the same frequency but }}
+\DoxyCodeLine{184     \textcolor{comment}{// which should go earlier in alphabetical order, if it finds one, }}
+\DoxyCodeLine{185     \textcolor{comment}{// it swaps them in the array, doing this for *every* element in the array}}
+\DoxyCodeLine{186     \textcolor{comment}{// will ensure that it ends up properly sorted. }}
+\DoxyCodeLine{187     \textcolor{comment}{// (these 10 lines of code took me literally 4 hours of Saturday }}
+\DoxyCodeLine{188     \textcolor{comment}{//  afternoon omg, who knew you can use "{}>"{} between strings).}}
+\DoxyCodeLine{189         }
+\DoxyCodeLine{190     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nElements; i++) \{}
+\DoxyCodeLine{191             }
+\DoxyCodeLine{192         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = i + 1; j < nElements ; j++) \{}
+\DoxyCodeLine{193                 }
+\DoxyCodeLine{194             \textcolor{keywordflow}{if} ((array[i].getFrequency() == array[j].getFrequency()) \&\&}
+\DoxyCodeLine{195                 (array[i].getKmer().toString() > array[j].getKmer().toString()))\{   }
+\DoxyCodeLine{196                     }
+\DoxyCodeLine{197                 \mbox{\hyperlink{ArrayKmerFreqFunctions_8cpp_a7b6fb8ddb68668cbd47c93cef0261ac8}{SwapElementsArrayKmerFreq}}(array, nElements, i,j);}
+\DoxyCodeLine{198             \}}
+\DoxyCodeLine{199         \}}
+\DoxyCodeLine{200     \}   }
+\DoxyCodeLine{201 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ArrayKmerFreqFunctions_8h_a7b6fb8ddb68668cbd47c93cef0261ac8}\label{ArrayKmerFreqFunctions_8h_a7b6fb8ddb68668cbd47c93cef0261ac8}} 
+\index{ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}!SwapElementsArrayKmerFreq@{SwapElementsArrayKmerFreq}}
+\index{SwapElementsArrayKmerFreq@{SwapElementsArrayKmerFreq}!ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}}
+\doxysubsubsection{\texorpdfstring{SwapElementsArrayKmerFreq()}{SwapElementsArrayKmerFreq()}}
+{\footnotesize\ttfamily void Swap\+Elements\+Array\+Kmer\+Freq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{n\+Elements,  }\item[{int}]{first,  }\item[{int}]{second }\end{DoxyParamCaption})}
+
+
+
+Swaps the elements at positions {\ttfamily first} and {\ttfamily second} in the given array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. Input/output parameter \\
+\hline
+{\em n\+Elements} & The number of elements used by the array. Input parameter \\
+\hline
+{\em first} & the position of the first element to be swaped. Input parameter \\
+\hline
+{\em second} & the position of the second element to be swaped. Input parameter \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & a std\+::out\+\_\+of\+\_\+range exception if first or second are positions out of the range of the given array \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 79 of file Array\+Kmer\+Freq\+Functions.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81 \{}
+\DoxyCodeLine{82     \textcolor{keywordflow}{if} (first > nElements || second > nElements)\{    \textcolor{comment}{// Precondition violation.}}
+\DoxyCodeLine{83         \textcolor{keywordflow}{throw} std::out\_of\_range(}
+\DoxyCodeLine{84             std::string(\textcolor{stringliteral}{"{}ArrayKmerFreqFunctions(KmerFreq array[], int nElements, int first, int second): "{}}) +}
+\DoxyCodeLine{85                         \textcolor{stringliteral}{"{} The position 'first' or 'last' cannot be bigger than the size of the array"{}});}
+\DoxyCodeLine{86         }
+\DoxyCodeLine{87     \} \textcolor{comment}{// Throws error message when precondition is violated}}
+\DoxyCodeLine{88     }
+\DoxyCodeLine{89     \mbox{\hyperlink{classKmerFreq}{KmerFreq}} temp; \textcolor{comment}{// Create an object to temporary store a value in order to swap}}
+\DoxyCodeLine{90     }
+\DoxyCodeLine{91     temp = array[first];}
+\DoxyCodeLine{92     }
+\DoxyCodeLine{93     array[first] = array[second];}
+\DoxyCodeLine{94     }
+\DoxyCodeLine{95     array[second] = temp;}
+\DoxyCodeLine{96 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ArrayKmerFreqFunctions_8h_a03b1e016c8132a03dfec8914511912c7}\label{ArrayKmerFreqFunctions_8h_a03b1e016c8132a03dfec8914511912c7}} 
+\index{ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}!ZipArrayKmerFreq@{ZipArrayKmerFreq}}
+\index{ZipArrayKmerFreq@{ZipArrayKmerFreq}!ArrayKmerFreqFunctions.h@{ArrayKmerFreqFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ZipArrayKmerFreq()}{ZipArrayKmerFreq()}}
+{\footnotesize\ttfamily void Zip\+Array\+Kmer\+Freq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int \&}]{n\+Elements,  }\item[{bool}]{delete\+Missing = {\ttfamily false},  }\item[{int}]{lower\+Bound = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Deletes the \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} objects from the argument array which verifies one the following two criteria\+: 
+
+
+\begin{DoxyEnumerate}
+\item The argument delete\+Missing is true and the \mbox{\hyperlink{classKmer}{Kmer}} contains an unknown nucleotide
+\begin{DoxyEnumerate}
+\item The frequency is less or equals to {\ttfamily lower\+Bound}.
+\end{DoxyEnumerate}
+\end{DoxyEnumerate}
+
+Note that the number of elements in the argument array could be modified.
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}}. Input/output parameter \\
+\hline
+{\em n\+Elements} & The number of elements used by the array. Note that the number of elements in the argument array could be modified. Input/output parameter \\
+\hline
+{\em delete\+Missing} & A bool value that indicates whether kmers with any unknown nucleotide should be removed. This parameter is false by default. Input parameter \\
+\hline
+{\em lower\+Bound} & An integer value that defines which \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} objects should be deleted from the given argument array. \mbox{\hyperlink{classKmerFreq}{Kmer\+Freq}} objects with a frequency less or equals to this value, are deleted. This parameter has zero as default value. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 295 of file Array\+Kmer\+Freq\+Functions.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{297 \{}
+\DoxyCodeLine{298     \textcolor{comment}{// First of all, if deleteMissing = true, let's delete all the ones}}
+\DoxyCodeLine{299     \textcolor{comment}{// that contain an unknown nucleotide.}}
+\DoxyCodeLine{300     }
+\DoxyCodeLine{301 }
+\DoxyCodeLine{302     \textcolor{keywordflow}{if} (deleteMissing == \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{303         }
+\DoxyCodeLine{304         \textcolor{keywordtype}{int} pos\_missing\_nucleotide;}
+\DoxyCodeLine{305         }
+\DoxyCodeLine{306         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nElements; i++) \{}
+\DoxyCodeLine{307             }
+\DoxyCodeLine{308             pos\_missing\_nucleotide = array[i].\mbox{\hyperlink{classKmerFreq_a88c835ab19d85b09415bf5a10c607154}{getKmer}}().\mbox{\hyperlink{classKmer_ae394adf5587405c5204a07df6b95cebb}{toString}}().find(\textcolor{charliteral}{'\_'});}
+\DoxyCodeLine{309             }
+\DoxyCodeLine{310             \textcolor{keywordflow}{if} (pos\_missing\_nucleotide != -\/1)\{}
+\DoxyCodeLine{311                 \mbox{\hyperlink{ArrayKmerFreqFunctions_8cpp_a613a337e1425af0022f04bd3a22c5799}{DeletePosArrayKmerFreq}}(array, nElements, i);}
+\DoxyCodeLine{312                 i = i -\/ 1; \textcolor{comment}{// We have to do this in order to compensate for the }}
+\DoxyCodeLine{313                            \textcolor{comment}{// fact that we have moved the elements of the array}}
+\DoxyCodeLine{314                            \textcolor{comment}{// back one place, this way we do this specific for }}
+\DoxyCodeLine{315                            \textcolor{comment}{// instruction once more, because the element at pos "{}i"{}}}
+\DoxyCodeLine{316                            \textcolor{comment}{// is not the same as it was.}}
+\DoxyCodeLine{317             \}}
+\DoxyCodeLine{318         \}}
+\DoxyCodeLine{319     \}}
+\DoxyCodeLine{320     }
+\DoxyCodeLine{321     }
+\DoxyCodeLine{322     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nElements; i++) \{}
+\DoxyCodeLine{323         }
+\DoxyCodeLine{324         \textcolor{keywordflow}{if} (array[i].getFrequency() <= lowerBound)\{}
+\DoxyCodeLine{325             \mbox{\hyperlink{ArrayKmerFreqFunctions_8cpp_a613a337e1425af0022f04bd3a22c5799}{DeletePosArrayKmerFreq}}(array,nElements,i);}
+\DoxyCodeLine{326         \}   }
+\DoxyCodeLine{327     \}}
+\DoxyCodeLine{328     }
+\DoxyCodeLine{329 \}}
+
+\end{DoxyCode}

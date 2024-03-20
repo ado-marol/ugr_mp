@@ -1,0 +1,138 @@
+\hypertarget{Kmer_8cpp}{}\doxysection{src/\+Kmer.cpp File Reference}
+\label{Kmer_8cpp}\index{src/Kmer.cpp@{src/Kmer.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}Kmer.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{Kmer_8cpp_ab37d45ac1439c9a30303f1c023d825fc}{Is\+Valid\+Nucleotide}} (char nucleotide, const std\+::string \&valid\+Nucleotides)
+\begin{DoxyCompactList}\small\item\em Checks if the given nucleotide is contained in {\ttfamily valid\+Nucleotides}. That is, if the given character can be considered as part of a genetic sequence. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Kmer_8cpp_a77194578942a94dd58a0d5721ffa89d4}{To\+Lower}} (\mbox{\hyperlink{classKmer}{Kmer}} \&kmer)
+\begin{DoxyCompactList}\small\item\em Converts to lowercase the characters (nucleotides) of the given \mbox{\hyperlink{classKmer}{Kmer}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Kmer_8cpp_a529f93b76b54a04d3d72be14476cd38e}{To\+Upper}} (\mbox{\hyperlink{classKmer}{Kmer}} \&kmer)
+\begin{DoxyCompactList}\small\item\em Converts to uppercase the characters (nucleotides) of the given \mbox{\hyperlink{classKmer}{Kmer}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Adolfo Martínez Olmedo \href{mailto:adolfomarol@correo.ugr.es}{\texttt{ adolfomarol@correo.\+ugr.\+es}}
+\end{DoxyAuthor}
+Created on 12 March 2024, 19\+:00 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Kmer_8cpp_ab37d45ac1439c9a30303f1c023d825fc}\label{Kmer_8cpp_ab37d45ac1439c9a30303f1c023d825fc}} 
+\index{Kmer.cpp@{Kmer.cpp}!IsValidNucleotide@{IsValidNucleotide}}
+\index{IsValidNucleotide@{IsValidNucleotide}!Kmer.cpp@{Kmer.cpp}}
+\doxysubsubsection{\texorpdfstring{IsValidNucleotide()}{IsValidNucleotide()}}
+{\footnotesize\ttfamily bool Is\+Valid\+Nucleotide (\begin{DoxyParamCaption}\item[{char}]{nucleotide,  }\item[{const std\+::string \&}]{valid\+Nucleotides }\end{DoxyParamCaption})}
+
+
+
+Checks if the given nucleotide is contained in {\ttfamily valid\+Nucleotides}. That is, if the given character can be considered as part of a genetic sequence. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nucleotide} & The nucleotide (a character) to check. Input parameter \\
+\hline
+{\em valid\+Nucleotides} & The set of characters that we consider as possible characters in a genetic sequence. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the given character is contained in {\ttfamily valid\+Nucleotides}; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 196 of file Kmer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{197 \{}
+\DoxyCodeLine{198     \textcolor{keywordtype}{bool} value = \textcolor{keyword}{false}; \textcolor{comment}{// First initialize the value as false to save computing time.}}
+\DoxyCodeLine{199     }
+\DoxyCodeLine{200     \textcolor{keywordtype}{int} position;}
+\DoxyCodeLine{201     }
+\DoxyCodeLine{202     position = validNucleotides.find(nucleotide);}
+\DoxyCodeLine{203     }
+\DoxyCodeLine{204     \textcolor{comment}{// This method in the string class will return the position of the nucleotide}}
+\DoxyCodeLine{205     \textcolor{comment}{// if it belongs in the valid ones, if it doesn't belong there it will return "{}-\/1"{}}}
+\DoxyCodeLine{206     \textcolor{comment}{// hence, if it is not -\/1 the nucleotide does belong within the valid ones.}}
+\DoxyCodeLine{207     }
+\DoxyCodeLine{208     \textcolor{keywordflow}{if} (position != -\/1)}
+\DoxyCodeLine{209         value = \textcolor{keyword}{true};}
+\DoxyCodeLine{210         }
+\DoxyCodeLine{211     }
+\DoxyCodeLine{212     \textcolor{keywordflow}{return} (value);}
+\DoxyCodeLine{213 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Kmer_8cpp_a77194578942a94dd58a0d5721ffa89d4}\label{Kmer_8cpp_a77194578942a94dd58a0d5721ffa89d4}} 
+\index{Kmer.cpp@{Kmer.cpp}!ToLower@{ToLower}}
+\index{ToLower@{ToLower}!Kmer.cpp@{Kmer.cpp}}
+\doxysubsubsection{\texorpdfstring{ToLower()}{ToLower()}}
+{\footnotesize\ttfamily void To\+Lower (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classKmer}{Kmer}} \&}]{kmer }\end{DoxyParamCaption})}
+
+
+
+Converts to lowercase the characters (nucleotides) of the given \mbox{\hyperlink{classKmer}{Kmer}}. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000001}{Deprecated}}]This function could go away in future versions \end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parameters}
+{\em kmer} & A \mbox{\hyperlink{classKmer}{Kmer}} object. Output parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 215 of file Kmer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{216 \{}
+\DoxyCodeLine{217     \textcolor{keywordtype}{int} size = kmer.\mbox{\hyperlink{classKmer_a20154d7f1b00e893ecaf05cdf4221859}{size}}(); \textcolor{comment}{// To prevent problems with signed/unsigned ints}}
+\DoxyCodeLine{218     }
+\DoxyCodeLine{219     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++) \{ \textcolor{comment}{// We run through our Kmer, converting to }}
+\DoxyCodeLine{220                                      \textcolor{comment}{// lowercase any letter which isn't already}}
+\DoxyCodeLine{221         }
+\DoxyCodeLine{222         kmer.\mbox{\hyperlink{classKmer_af01ed408a277d7a40cbaf9e52d28054d}{at}}(i) = std::tolower(kmer.\mbox{\hyperlink{classKmer_af01ed408a277d7a40cbaf9e52d28054d}{at}}(i));}
+\DoxyCodeLine{223     \}}
+\DoxyCodeLine{224     }
+\DoxyCodeLine{225 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Kmer_8cpp_a529f93b76b54a04d3d72be14476cd38e}\label{Kmer_8cpp_a529f93b76b54a04d3d72be14476cd38e}} 
+\index{Kmer.cpp@{Kmer.cpp}!ToUpper@{ToUpper}}
+\index{ToUpper@{ToUpper}!Kmer.cpp@{Kmer.cpp}}
+\doxysubsubsection{\texorpdfstring{ToUpper()}{ToUpper()}}
+{\footnotesize\ttfamily void To\+Upper (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classKmer}{Kmer}} \&}]{kmer }\end{DoxyParamCaption})}
+
+
+
+Converts to uppercase the characters (nucleotides) of the given \mbox{\hyperlink{classKmer}{Kmer}}. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000002}{Deprecated}}]This function could go away in future versions \end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parameters}
+{\em kmer} & A \mbox{\hyperlink{classKmer}{Kmer}} object. Output parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 227 of file Kmer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228 \{}
+\DoxyCodeLine{229     \textcolor{keywordtype}{int} size = kmer.\mbox{\hyperlink{classKmer_a20154d7f1b00e893ecaf05cdf4221859}{size}}(); \textcolor{comment}{// To prevent problems with signed/unsigned ints}}
+\DoxyCodeLine{230     }
+\DoxyCodeLine{231     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++) \{ \textcolor{comment}{// We run through our Kmer, converting }}
+\DoxyCodeLine{232                                      \textcolor{comment}{// to uppercase any letter which isn't}}
+\DoxyCodeLine{233                                      \textcolor{comment}{// already}}
+\DoxyCodeLine{234         }
+\DoxyCodeLine{235         kmer.\mbox{\hyperlink{classKmer_af01ed408a277d7a40cbaf9e52d28054d}{at}}(i) = std::toupper(kmer.\mbox{\hyperlink{classKmer_af01ed408a277d7a40cbaf9e52d28054d}{at}}(i));}
+\DoxyCodeLine{236     \}}
+\DoxyCodeLine{237     }
+\DoxyCodeLine{238 \}}
+
+\end{DoxyCode}

@@ -36,7 +36,7 @@ void ReadArrayKmerFreq(KmerFreq array[], int dim, int& nElements);
  * @param array The array of KmerFreq to be printed. Input parameter
  * @param nElements The number of elements used by the array. Input parameter
 */
-void PrintArrayKmerFreq(KmerFreq array[], int nElements);
+void PrintArrayKmerFreq(const KmerFreq array[], int nElements);
 
 /**
  * @brief Swaps the elements at positions @p first and @p second in the given
@@ -62,7 +62,7 @@ void SwapElementsArrayKmerFreq(KmerFreq array[], int nElements, int first,
  * that begins at position @p initialPos and ends at position @p finalPos 
  * (both included). If the given Kmer is not found, then -1 is returned.
  */
-int FindKmerInArrayKmerFreq(KmerFreq array[], Kmer kmer,
+int FindKmerInArrayKmerFreq(const KmerFreq array[], Kmer& kmer,
         int initialPos, int finalPos);
 
 

@@ -4,11 +4,8 @@
  */
 
 /* 
- * File:   main.cpp
- * @author Silvia Acid Carrillo <acid@decsai.ugr.es>
- * @author Andrés Cano Utrera <acu@decsai.ugr.es>
- * @author Luis Castillo Vidal <L.Castillo@decsai.ugr.es>
- * @author Javier Martínez Baena <jbaena@ugr.es>
+ * @file:   main.cpp
+ * @author Adolfo Martínez Olmedo <adolfomarol@correo.ugr.es>
  *
  * Created on 27 October 2023, 12:00
  */
@@ -40,17 +37,10 @@ CC 3
 GC 2
  */
 
-
-/////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-/////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Main function
+ * @return Always 0
+ */
 int main(int argc, char* argv[]) { 
     // This string contains the list of nucleotides that are considered as
     // valid within a genetic sequence. The rest of characters are considered as
